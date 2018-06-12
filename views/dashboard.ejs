@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel=icon href=/img/cat.png>
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
+</head>
+<body>
+
+<a href="/dashboard">dashboard</a>
+<a href="/search">search</a>
+<a href="/article/new">create a new article</a>
+<a href="/profile">profile</a>
+
+<h1>Dashboard</h1>
+	<% articles.forEach((article) =>{ %>
+			<h2> <%= article.title %> </h2>
+			<p> created by 
+<a href="/user/profile/<%= article.author.username %>">
+<%= article.author.username %></a>
+</p>
+			<img src="<%= article.image %>"  />
+			<p> <%= article.description %> </p>
+			<% article.tags.forEach((tag) => { %>
+				<a href="/search/<%= tag %>"><%= tag %></a>
+			<% }) %>
+	<% }) %>
+
+
+</body>
+</html>
